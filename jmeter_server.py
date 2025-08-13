@@ -590,6 +590,8 @@ def generate_unique_id():
     random_id = str(uuid.uuid4())[:8]  # Use first 8 chars of UUID for brevity
     return f"{timestamp}_{random_id}"
 
+def main():
+    mcp.run(transport='stdio')
 
 if __name__ == "__main__":
-    mcp.run(transport='stdio')
+    main()
