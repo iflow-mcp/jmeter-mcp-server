@@ -1,5 +1,5 @@
 [project]
-name = "jmeter-mcp-server"
+name = "iflow-mcp_jmeter-mcp-server"
 version = "0.1.0"
 description = "JMeter MCP Server"
 readme = "README.md"
@@ -8,3 +8,6 @@ dependencies = [
     "httpx>=0.28.1",
     "mcp[cli]>=1.6.0",
 ]
+
+[project.scripts]
+jmeter-mcp-server = "main:main"
