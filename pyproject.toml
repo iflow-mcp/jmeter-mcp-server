@@ -11,3 +11,11 @@ dependencies = [
 
 [project.scripts]
 jmeter-mcp-server = "main:main"
+
+[tool.setuptools]
+packages = ["analyzer"]
+py-modules = ["main", "jmeter_server", "windsurf_db_reader", "windsurf_db_reader_alternative"]
+
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
