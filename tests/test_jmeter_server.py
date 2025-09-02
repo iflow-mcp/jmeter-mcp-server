@@ -92,21 +92,21 @@ class TestRunJMeter(unittest.IsolatedAsyncioTestCase):
     async def test_execute_jmeter_test_default(self, mock_run_jmeter):
         mock_run_jmeter.return_value = "wrapped output"
         result = await jmeter_server.execute_jmeter_test("file.jmx")
-        mock_run_jmeter.assert_awaited_with("file.jmx", non_gui=True)
+        mock_run_jmeter.assert_awaited_with("file.jmx", non_gui=True, properties=None)
         self.assertEqual(result, "wrapped output")
 
     @mock.patch('jmeter_server.run_jmeter', new_callable=mock.AsyncMock)
     async def test_execute_jmeter_test_gui(self, mock_run_jmeter):
         mock_run_jmeter.return_value = "gui output"
         result = await jmeter_server.execute_jmeter_test("file.jmx", gui_mode=True)
-        mock_run_jmeter.assert_awaited_with("file.jmx", non_gui=False)
+        mock_run_jmeter.assert_awaited_with("file.jmx", non_gui=False, properties=None)
         self.assertEqual(result, "gui output")
 
     @mock.patch('jmeter_server.run_jmeter', new_callable=mock.AsyncMock)
     async def test_execute_jmeter_test_non_gui(self, mock_run_jmeter):
         mock_run_jmeter.return_value = "non-gui output"
         result = await jmeter_server.execute_jmeter_test_non_gui("file.jmx")
-        mock_run_jmeter.assert_awaited_with("file.jmx", non_gui=True)
+        mock_run_jmeter.assert_awaited_with("file.jmx", non_gui=True, properties=None, generate_report=False, report_output_dir=None, log_file=None)
         self.assertEqual(result, "non-gui output")
 
 
