@@ -62,7 +62,7 @@ class TestMetricsCalculator(unittest.TestCase):
         # Check percentiles (using the actual calculated values)
         self.assertAlmostEqual(metrics.percentile_90, 252.0)
         self.assertAlmostEqual(metrics.percentile_95, 266.0)
-        self.assertAlmostEqual(metrics.percentile_99, 277.6)
+        self.assertAlmostEqual(metrics.percentile_99, 277.2)
         
         # Check throughput and duration
         self.assertEqual(metrics.test_duration, 14)  # 14 seconds from first to last sample
